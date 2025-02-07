@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Criativo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Meu Portfolio</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="menu-toggle">☰</div>
+        </nav>
+    </header>
+    <section id="home" class="hero">
+        <h2>Bem-vindo ao meu Portfólio</h2>
+        <p>Veja meus projetos incríveis abaixo!</p>
+    </section>
+    <section id="sobre" class="sobre">
+        <h2>Sobre Mim</h2>
+        <p> Olá, me chamo David. Sou um designer gráfico apaixonado por transformar ideias em realidade visual. Com 2 anos de 
+            experiência trabalhando como freelancer, buscando soluções criativas e personalizada para cada cliente.
+            Acredito que um bom design comunica de forma clara e eficaz, e me dedico a entender as necessidades de cada projeto para 
+            criar logotipos e banners impactantes. 
+            Trabalhei com alguns clientes, sempre desenvolvendo projetos: como criação de rifas, post para instagram, criação de logotipos... 
+            Tenho um vasto conhecimento sobre o Illustrator e estou estudando sobre o photoshop. 
+            Se você busca um designer gráfico comprometido e criativo, entre em contato comigo. 
+            </p>
+   <section id="portfolio" class="portfolio">
+    <h2>Meus Trabalhos</h2>
+    <div class="portfolio-container">
+        <div class="portfolio-item">
+            <div class="image-container">
+                <img src="img/tazburguer.png" alt="Logotipo" width="600" height="500"/>
+                <div class="text-overlay">Logotipo para uma hamburgueria </div>
+            </div>
+        </div>
+        <div class="portfolio-item">Post para redes sociais</div>
+    </div>
+</section>
+
+    
+        <h2>Contato</h2>
+        <p>Entre em contato comigo para criar algo incrível juntos! <br>Email: bispodavid09@gmail.com</p>
+    </section>
+    
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #000;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #00aaff;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #000, #1a1a2e);
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: #00aaff;
+        }
+
+        /* Sobre Mim */
+        .sobre {
+            text-align: center;
+            padding: 50px;
+            background: #181818;
+        }
+
+        .sobre p {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            text-align: center;
+            padding: 50px;
+            background: #181818;
+        }
+
+        .portfolio-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-item {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+            background: #00aaff;
+            color: #000;
+        }
+
+        /* Contato */
+        .contato {
+            text-align: center;
+            padding: 50px;
+            background: #000;
+        }
+    </style>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+
+            menuToggle.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+
+            // Animação ao rolar a página
+            const items = document.querySelectorAll(".portfolio-item");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transform = "translateY(0)";
+                        entry.target.style.opacity = "1";
+                    }
+                });
+            });
+
+            items.forEach(item => {
+                item.style.transform = "translateY(50px)";
+                item.style.opacity = "0";
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
